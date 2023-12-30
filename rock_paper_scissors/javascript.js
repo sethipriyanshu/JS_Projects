@@ -3,4 +3,3 @@ function getComputerChoice(){
     const selection = array[Math.floor(Math.random()*3)];
     return selection;
 }
-console.log(getComputerChoice());
