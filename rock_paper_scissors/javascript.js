@@ -6,41 +6,46 @@ function getComputerChoice(){
 
 function playGame(playerSelection, computerSelection){
     playerSelection = playerSelection.toLowerCase();
-    let result = "playGame error";
     if(playerSelection == computerSelection){
-        result = "There is a Tie";
+        console.log("There is a Tie");
+        return -1;
     }
     else{
         if(playerSelection == "rock"){
             if(computerSelection =="paper"){
-                result = "You Lose! Paper beats Rock";
+                console.log("You Lose! Paper beats Rock")
+                return 0;
             }
             else if(computerSelection == "scissors"){
-                result = "You Win! Rock beats Scissors";
+                console.log("You Win! Rock beats Scissors");
+                return 1;
             }
         } 
         if(playerSelection == "paper"){
             if(computerSelection == "rock"){
-                result = "You Win! Paper beats Rock";
+                console.log("You Win! Paper beats Rock");
+                return 1;
             }
             else if(computerSelection == "scissors"){
-                result = "You Lose! Scissors beat Paper";
+                console.log("You Lose! Scissors beat Paper");
+                return 0;
             }
         }
         if(playerSelection == "scissors"){
             if(computerSelection == "rock"){
-                result = "You Lose! Rock beats Scissors";
+                console.log("You Lose! Rock beats Scissors");
+                return 0;
             }
             else if(computerSelection == "paper"){
-                result = "You Win! Scissors beat Paper";
+                console.log("You Win! Scissors beat Paper");
+                return 1;
             }
         }
     }
-    return result;
 
 }
 
-function game(){
+/**function game(){
     let cscore = 0;
     let pscore = 0;
     for(let i = 0; i<5;i++){
@@ -50,6 +55,29 @@ function game(){
         console.log(result);
     }
 }
+*/
+ function game(){
+    let cscore = 0;
+    let pscore = 0;
+    while(cscore <3 && pscore<3){
+        let playerchoice = prompt("Choose rock / paper / scissors");
+        let compchoice = getComputerChoice();
+        let result = playGame(playerchoice,compchoice);
+        if(result == 0){
+            cscore++;
+        }
+        else if(result == 1){
+            pscore++;
+        }
+        console.log("Your Score is" +" " +pscore +","+ "Computer Score is" + "" + cscore);
+    }
+    if(pscore == 3){
+        console.log("YOU WIN!");
+    }
+    else if(cscore == 3){
+        console.log("COMPUTER WINS");
+    }
+ }
 
 // things to fix
 // game replay on tie
