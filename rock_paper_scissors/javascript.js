@@ -79,6 +79,4 @@ function playGame(playerSelection, computerSelection){
     }
  }
 
-// things to fix
-// game replay on tie
-// scoring system add
+// fixed version
